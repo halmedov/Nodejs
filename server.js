@@ -1,12 +1,11 @@
 const http = require("http");
-const PORT = 5005;
+const express = require("express");
+const mongoClient = require("mongodb").mongoClient;
+const bodyParser = require("body-parser");
+const PORT = 8000;
 
-const some_html = "<h1>Hello World!</h1><p>Bazarbay</p>"
+const app = express()
 
-const server = http.createServer((req,res)=>{
-  res.write(some_html)
-  console.log("Welcome to Server");
-  res.end()
+app.listen(PORT,()=>{
+  console.log(`Server is running on port: ${PORT}`);
 })
-
-server.listen(PORT)
